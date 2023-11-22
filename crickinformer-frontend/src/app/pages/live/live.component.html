@@ -1,0 +1,21 @@
+<!-- <p>{{liveMatches | json}}</p> -->
+<div class="">
+ <h1 class="text-4xl font-extrabold text-gray-800">Live Cricket Score</h1>
+ <!-- we can use both way -->
+ <!-- <div *ngFor="let m of liveMatches">
+    {{m.teamHeading}}
+ </div> -->
+
+ <!-- new way using loop in angular 17-->
+<div  class="items-stretch card-container flex flex-wrap flex-col md:flex-row">
+    @for (match of liveMatches; track $index){
+        <div class="p-2 md:w-[25%] w-full">
+            <app-match-card [match]="match"></app-match-card>
+        </div>
+       }
+       @empty{
+        there is no match
+     }
+</div>
+
+</div>
