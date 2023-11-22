@@ -1,0 +1,56 @@
+
+<!-- <header class="bg-blue-500 text-white p-4 text-center">
+ <h1 class="text-2xl font-bold">CricketInformer</h1>
+  
+</header>
+  <nav class="bg-gray-800 text-white p-4">
+    <ul class="flex justify-center space-x-4">
+        <li><a [routerLink]="'/home'" href="#" class="hover:bg-gray-700 px-4 py-2 rounded">Home</a></li>
+        <li><a [routerLink]="'/live'" href="#" class="hover:bg-gray-700 px-4 py-2 rounded">Live</a></li>
+        <li><a [routerLink]="'/history'" href="#" class="hover:bg-gray-700 px-4 py-2 rounded">History</a></li>
+        <li><a [routerLink]="'/point-table'" href="#" class="hover:bg-gray-700 px-4 py-2 rounded">Point Table</a></li>
+    </ul>
+  </nav> -->
+
+<!-- navbar.component.html -->
+<nav class="bg-blue-500 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-white text-xl font-bold">CricketInformer</h1>
+
+    <div class="hidden md:flex space-x-4">
+      <a routerLink="/" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Home</a>
+      <a routerLink="/live" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Live</a>
+      <a routerLink="/history" class="text-white hover:bg-gray-700 px-4 py-2 rounded">History</a>
+      <a routerLink="/point-table" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Point Table</a>
+    </div>
+
+    <div class="md:hidden">
+      <!-- Mobile Menu Button -->
+      <button (click)="toggleMobileMenu()" class="text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu -->
+      <div *ngIf="isMobileMenuOpen" class="block">
+        <a routerLink="/" class="block text-white hover:bg-gray-700 px-4 py-2 rounded">Home</a>
+        <a routerLink="/live" class="block text-white hover:bg-gray-700 px-4 py-2 rounded">Live</a>
+        <a routerLink="/history" class="block text-white hover:bg-gray-700 px-4 py-2 rounded">History</a>
+        <a routerLink="/point-table" class="block text-white hover:bg-gray-700 px-4 py-2 rounded">Point Table</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<div class="px-28 py-8">
+  <router-outlet></router-outlet>
+</div>
