@@ -1,0 +1,55 @@
+<!-- <div class="hover:bg-blue-100 transition-all cursor-pointer border-b-blue-500 border-b-8 rounded-xl card border p-4 bg-white shadow-lg mt-2">
+    <div class="header border-b-2 pb-3 border-b-gray-200">
+       <h1>India vs England</h1>
+       <p>20th match, wankhere stadium mumbai</p>
+    </div>
+    <div class="body mt-4">
+      <div class="flex justify-between px-2">
+        <p class="font-bold">IND</p>
+        <p class="font-bold">180/2</p>
+      </div>
+      <div class="flex justify-between font-bold px-2">
+        <p>ENG</p>
+        <p>120/5</p>
+      </div>
+    </div>
+    <div class="footer">
+       <div class="mt-3">
+        <p class="text-red-700">India has won the toss and elected to bat first</p>
+       </div>
+    </div>
+</div> -->
+
+<!-- {{match | json}} -->
+@if(match){
+    <div class="card h-full border-b-blue-500 border-b-8 rounded-xl border p-4 bg-white shadow-lg mt-2 hover:bg-blue-100 transition-all cursor-pointer ">
+        <div class="header border-b-2 pb-3 border-b-gray-200">
+           <h1 class="font-bold">{{match.teamHeading}}</h1>
+           <p>{{match.matchNumberVenue}}</p>
+        </div>
+        <div class="body mt-4">
+          <div class="flex justify-between px-2">
+            <p class="font-bold">{{match.battingTeam}}</p>
+            <p class="font-bold">{{match.battingTeamScore}}</p>
+          </div>
+          <div class="flex justify-between font-bold px-2">
+            <p>{{match.bowlTeam}}</p>
+            <p>{{match.bowlTeamScore}}</p>
+          </div>
+        </div>
+
+      <!-- -----------added later--------- -->
+       <div class="font-semibold text-center mt-3" [ngStyle]="{'color': (match.status == 'COMPLETED') ? 'green' : ((match.status == 'LIVE') ? 'red' : 'gray') }">
+         {{match.status}}
+        </div>
+        <!-- <div style="font-size: small;" class="mb-3 text-center text-gray-500 "> {{match.date | date:'MMM d, y h:mm:ss a ' }}</div>  -->
+        <div class="border-b-2 border-b-gray-200 m-2"></div>
+      <!-- ------------------------------- -->
+
+        <div class="footer mt-3">
+            <p class="text-red-700">{{match.liveText}}</p>
+            <p class="text-green-700">{{match.textComplete}}</p>
+        </div>
+        <div>{{match.status && match.date}}</div>
+    </div>
+}
